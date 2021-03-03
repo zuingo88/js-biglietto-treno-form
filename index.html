@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zuingo - js-biglietto-treno-form</title>
+    <style>
+        #container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 750px;
+            height: 200px;
+            margin: auto;
+            color: white;
+            background-color: teal;
+            border: solid 2px black;
+            border-radius: 20px;
+            overflow: auto;
+        }
+
+        #pi {
+            transition: all 0.5s;
+        }
+
+        #pi:hover {
+            scale: 2;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <h1 id="titolo">ciao mondo</h1>
+        <p id="pi">tanti saluti</p>
+    </div>
+    
+    <script>
+
+        //Il programma dovrà chiedere all'utente il numero di chilometri che vuole percorrere e l'età del passeggero. Sulla base di queste informazioni dovrà calcolare il prezzo totale del viaggio. Il prezzo del biglietto è definito in base ai km (0.21 € al km), ma va applicato uno sconto del 20% per i minorenni e del 40% per gli over 65.
+
+        var km = parseInt(prompt('Quanti kilomentri devi percorrere?'));
+        var age = parseInt(prompt('Quanti anni hai?'));
+        var standardPrice = km * 0.21;
+        var underPrice = km * 0.21 * 0.8;
+        var overPrice = km * 0.21 * 0.6;
+
+        console.log('Il tuo viaggio: ', km, ' km');
+        console.log('La tua età: ', age, ' anni');
+        
+        if (age > 5 && age < 18) {
+            console.log('Hai diritto ad uno sconto del 20%. Il prezzo del tuo biglietto è: ', underPrice, ' €');
+       }
+       else if (age > 65) {
+            console.log('Hai diritto ad uno sconto del 40%. Il prezzo del tuo biglietto è: ', overPrice, ' €');
+       }
+       else if (age <= 5) {
+           console.log('Avvisa la mamma che il tuo viaggio è gratuito!');
+       }
+       else {
+           console.log('Il prezzo del biglietto per il tuo viaggio è: ', standardPrice, ' €')
+       }
+
+    </script>
+
+</body>
+
+</html>
