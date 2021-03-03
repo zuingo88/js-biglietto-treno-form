@@ -13,7 +13,7 @@
             justify-content: center;
             align-items: center;
             width: 750px;
-            height: 200px;
+            height: 400px;
             margin: auto;
             color: white;
             background-color: teal;
@@ -22,11 +22,11 @@
             overflow: auto;
         }
 
-        #pi {
+        .pi {
             transition: all 0.5s;
         }
 
-        #pi:hover {
+        .pi:hover {
             scale: 2;
         }
     </style>
@@ -36,7 +36,9 @@
 
     <div id="container">
         <h1 id="titolo">ciao mondo</h1>
-        <p id="pi">tanti saluti</p>
+        <p id="p1" class="pi">tanti saluti</p>
+        <p id="p2" class="pi">tanti saluti</p>
+        <p id="p3" class="pi">tanti saluti</p>
     </div>
     
     <script>
@@ -72,7 +74,7 @@
 
         var km = parseInt(prompt('Quanti kilometri devi percorrere?'));
         var age = parseInt(prompt('Quanti anni hai?'));
-        var price = km * 0.21;
+        var price = (km * 0.21).toFixed(2);
         var discount = 1;
         var message = 'Il prezzo del biglietto per il tuo viaggio è: ';
 
@@ -89,12 +91,16 @@
             message = 'Hai diritto ad uno sconto del 40%. Il prezzo del tuo biglietto è: ';
         }
 
-        var finalPrice = price * discount;
-
+        var finalPrice = (price * discount).toFixed(2);
 
         console.log('Il tuo viaggio: ', km, ' km');
         console.log('La tua età: ', age, ' anni');
-        console.log(message, finalPrice);
+        console.log(message, finalPrice, ' €');
+
+        document.getElementById('titolo').innerHTML = 'BIGLIETTO DI VIAGGIO';
+        document.getElementById('p1').innerHTML = 'Il tuo viaggio: ' + km + ' km';
+        document.getElementById('p2').innerHTML = 'La tua età: ' + age + ' anni';
+        document.getElementById('p3').innerHTML = message + finalPrice + ' €';  
 
     </script>
 
